@@ -12,14 +12,14 @@
 </head>
 
 <body>
-    <div class="jumbotron jumbotron-fluid">
+    <div class="jumbotron jumbotron-fluid p-3 border bg-light">
         <div class="container">
             <h1 class="display-2">Where's the Train?!</h1>
             <p class="lead">Find what time the next train is coming! Use the form below to add your own train schedule... CHOOT CHOOT..</p>
         </div>
     </div>
 
-    <table class="table">
+    <table class="table mt-n5 p-3 border bg-light">
         <thead>
             <tr>
                 <th scope="col">Train Name</th>
@@ -53,7 +53,7 @@
         </tbody>
     </table>
 
-    <form>
+    <form class="p-3 border bg-light">
         <div class="form-group">
             <label>Train Name</label>
             <input type="text" class="form-control" placeholder="what's this train called?">
@@ -76,23 +76,7 @@
         <button type="submit" class="btn btn-primary">Submit</button>
     </form>
 
-<!-- TODO: Add SDKs for Firebase products that you want to use
-     https://firebase.google.com/docs/web/setup#config-web-app -->
 
-<script>
-  // Your web app's Firebase configuration
-  var firebaseConfig = {
-    apiKey: "AIzaSyDzt8c4lw8wcLDSVFl-6rtKiTash7ifmrc",
-    authDomain: "train-schedule-2e3dc.firebaseapp.com",
-    databaseURL: "https://train-schedule-2e3dc.firebaseio.com",
-    projectId: "train-schedule-2e3dc",
-    storageBucket: "",
-    messagingSenderId: "22234897843",
-    appId: "1:22234897843:web:7ca2e43e27d6d837"
-  };
-  // Initialize Firebase
-  firebase.initializeApp(firebaseConfig);
-</script>
 </body>
 
 </html>
