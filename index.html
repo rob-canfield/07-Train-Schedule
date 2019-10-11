@@ -9,6 +9,8 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <script src="https://www.gstatic.com/firebasejs/6.4.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/6.4.0/firebase-database.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 </head>
 
 <body>
@@ -29,53 +31,33 @@
                 <th scope="col">Minutes Away</th>
             </tr>
         </thead>
-        <tbody>
-            <tr>
-                <th scope="row"></th>
-                <td>Mark</td>
-                <td>Otto</td>
-                <td>@mdo</td>
-                <td>@mdo</td>
-
-            </tr>
-            <tr>
-                <th scope="row"></th>
-                <td>Jacob</td>
-                <td>Thornton</td>
-                <td>@fat</td>
-            </tr>
-            <tr>
-                <th scope="row"></th>
-                <td>Larry</td>
-                <td>the Bird</td>
-                <td>@twitter</td>
-            </tr>
+        <tbody id="train-info">
+           
         </tbody>
     </table>
 
     <form class="p-3 border bg-light">
         <div class="form-group">
             <label>Train Name</label>
-            <input type="text" class="form-control" placeholder="what's this train called?">
+            <input id="train-name" type="text" class="form-control" placeholder="what's this train called?">
         </div>
         <div class="form-group">
-            <label for="exampleInputPassword1">Train Destination</label>
-            <input type="text" class="form-control" placeholder="where we goin'?!">
+            <label>Train Destination</label>
+            <input id="destination" type="text" class="form-control" placeholder="where we goin'?">
         </div>
         <div class="form-group">
-            <label>First Train Time (HH:mm military time)</label>
-            <input type="text" class="form-control" id="exampleInputPassword1"
-                placeholder="when does the first one leave?!">
+            <label>First Train Departure Time (HH:mm military time)</label>
+            <input id="first-departure" type="text" class="form-control" placeholder="when does the first one leave?">
         </div>
         <div class="form-group">
             <label>Frequency (minutes)</label>
-            <input type="text" class="form-control" id="exampleInputPassword1"
-                placeholder="how often does this train coe through?!">
+            <input id="frequency" type="text" class="form-control" placeholder="how often does this train come through?">
         </div>
-
-        <button type="submit" class="btn btn-primary">Submit</button>
+    
+        <button id="submit" type="submit" class="btn btn-primary">Submit</button>
     </form>
 
+    <script src="./assets/javascript/app.js"></script>
 
 </body>
 
