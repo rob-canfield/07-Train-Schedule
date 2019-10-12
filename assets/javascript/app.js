@@ -1,4 +1,4 @@
-  // Your web app's Firebase configuration
+
   var firebaseConfig = {
     apiKey: "AIzaSyDzt8c4lw8wcLDSVFl-6rtKiTash7ifmrc",
     authDomain: "train-schedule-2e3dc.firebaseapp.com",
@@ -12,8 +12,6 @@
   firebase.initializeApp(firebaseConfig);
 
   var database = firebase.database();
-
-  var trainInfo =  $("#train-info");
 
   $("#submit").on('click', function(){
     event.preventDefault();
@@ -46,18 +44,33 @@
 
     console.log(snapshot.val());
 
-    // snapshot.forEach(function(){
+      var tFrequency = snapshot.val().frequency;
+      var firstDeparture = snapshot.val().departure;
+
+      var firstTimeConverted = moment(firstDeparture, "HH:mm").subtract(1, "years");
+
+      var timeDifference = moment().diff(moment(firstTimeConverted), "minutes");
+
+      var timeRemainder = timeDifference % tFrequency;
+
+      var nextArrival = tFrequency - timeRemainder;
+
+      var nextTrain = moment().add(nextArrival, "minutes");
+
+
+
+
 
       var newRow = $("<tr>").append(
        $("<td>").text(snapshot.val().name),
        $("<td>").text(snapshot.val().destination),
-       $("<td>").text(snapshot.val().frequency),
-       $("<td>").text(snapshot.val().name)
+       $("<td>").text(snapshot.val().frequency + " min."),
+       $("<td>").text(moment(nextTrain).format('h:mm a, MMMM Do')),
+       $("<td>").text(nextArrival + " min. away")
       );
   
   
       $("#train-info").append(newRow);
-    // })
   
 
 
